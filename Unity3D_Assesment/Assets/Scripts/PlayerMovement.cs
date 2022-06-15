@@ -16,8 +16,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 forceInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        //Vector3 forceInput = new Vector3(Input.GetAxis("Horizontal") * transform.right, 0, Input.GetAxis("Vertical"));
+        Vector3 rightForceInput = Input.GetAxis("Horizontal") * transform.right * speed;
+        Vector3 forwardForceInput = Input.GetAxis("Vertical") * transform.forward * speed;
+
         //Debug.Log(forceInput);
-        objectRigidBody.AddForce(forceInput * speed);
+        objectRigidBody.AddForce(rightForceInput + forwardForceInput);
     }
 }
