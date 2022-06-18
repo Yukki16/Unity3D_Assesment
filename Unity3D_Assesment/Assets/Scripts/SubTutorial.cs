@@ -14,7 +14,7 @@ public class SubTutorial : MonoBehaviour
     IEnumerator Sequence()
     {
         yield return new WaitForSeconds(1);
-        textBox.GetComponent<Text>().text = "Welcome player, to this kind of game.";
+        textBox.GetComponent<Text>().text = "Welcome player, to THE GAME.";
         yield return new WaitForSeconds(5);
         textBox.GetComponent<Text>().text = "";
         yield return new WaitForSeconds(2);

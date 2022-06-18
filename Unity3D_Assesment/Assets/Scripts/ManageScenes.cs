@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ManageScenes : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public string sceneNameToLoad = null;
+    public void LoadScene(string SceneName)
     {
-        
+        SceneManager.LoadScene(SceneName);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void QuitGame()
     {
-        
+        Application.Quit();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        LoadScene(sceneNameToLoad);
     }
 }
