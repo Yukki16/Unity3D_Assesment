@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - ObjectToLift
+  - Button
+  - ResetButton
+  - Lever
   layers:
   - Default
   - TransparentFX

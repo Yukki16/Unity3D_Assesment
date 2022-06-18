@@ -5,9 +5,23 @@ using UnityEngine;
 public class ButtonAnimator : MonoBehaviour
 {
     private Animator animator;
+
+    public GameObject[] wires;
+    private Renderer wireRenderer;
+    public Material[] wireMaterials;
+
+    public GameObject door = null;
+    private Animator doorAnimator = null;
+
+    bool isClosed = true;
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        if(door != null)
+        {
+            doorAnimator = door.GetComponent<Animator>();
+        }
     }
 
     // Update is called once per frame
@@ -16,6 +30,13 @@ public class ButtonAnimator : MonoBehaviour
         if (animator != null)
         {
             animator.SetBool("objectOver", true);
+            ChangeColor(1);
+
+
+            if (door != null && isClosed)
+            {
+                OpenDoor();
+            }
         }
     }
 
@@ -24,6 +45,33 @@ public class ButtonAnimator : MonoBehaviour
         if (animator != null)
         {
             animator.SetBool("objectOver", false);
+            ChangeColor(0);
+
+            if (door != null && !isClosed)
+            {
+                CloseDoor();
+            }
         }
+    }
+
+    private void ChangeColor(int wireColorNumber)
+    {
+        foreach(GameObject wire in wires)
+        {
+            wireRenderer = wire.GetComponent<Renderer>();
+            wireRenderer.sharedMaterial = wireMaterials[wireColorNumber];
+        }
+    }
+
+    private void OpenDoor()
+    {
+        doorAnimator.SetTrigger("OpenDoor");
+        isClosed = false;
+    }
+    
+    private void CloseDoor()
+    {
+        doorAnimator.SetTrigger("CloseDoor");
+        isClosed = true;
     }
 }
