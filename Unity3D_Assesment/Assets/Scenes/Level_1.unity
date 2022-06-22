@@ -2003,6 +2003,10 @@ PrefabInstance:
       propertyPath: checkCompletition
       value: 
       objectReference: {fileID: 980365430}
+    - target: {fileID: 1935519566, guid: fb3c6b195f623a0478a2c7d10b624db8, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 1469952494795757158, guid: fb3c6b195f623a0478a2c7d10b624db8, type: 3}
       propertyPath: m_Name
       value: MaleDummy Variant 1

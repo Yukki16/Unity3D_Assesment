@@ -12,6 +12,7 @@ public class ButtonAnimator : MonoBehaviour
 
     public GameObject door = null;
     private Animator doorAnimator = null;
+    private static readonly int ClosedDoorVariable = Animator.StringToHash("ClosedDoor");
 
     bool isClosed = true;
     void Start()
@@ -65,13 +66,18 @@ public class ButtonAnimator : MonoBehaviour
 
     private void OpenDoor()
     {
-        doorAnimator.SetTrigger("OpenDoor");
         isClosed = false;
+        AnimateDoor();
     }
     
     private void CloseDoor()
     {
-        doorAnimator.SetTrigger("CloseDoor");
         isClosed = true;
+        AnimateDoor();
+    }
+
+    private void AnimateDoor()
+    {
+        doorAnimator.SetBool(ClosedDoorVariable, isClosed);
     }
 }

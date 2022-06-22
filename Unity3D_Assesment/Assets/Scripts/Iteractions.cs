@@ -13,11 +13,13 @@ public class Iteractions : MonoBehaviour
     bool hasItemInHands = false;
 
     public CheckPuzzleCompletition checkCompletition;
+
+    private float rangeOfInteraction = 5f;
     
     // Update is called once per frame
     void Update()
     {
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 3f))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rangeOfInteraction))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
 

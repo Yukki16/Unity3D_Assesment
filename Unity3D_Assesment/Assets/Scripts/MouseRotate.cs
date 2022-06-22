@@ -9,6 +9,11 @@ public class MouseRotate : MonoBehaviour
 
     public Camera playerCamera = null;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     // Update is called once per frame
     void Update()
     {
