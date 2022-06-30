@@ -9,12 +9,17 @@ public class LeverAction : MonoBehaviour
     private Renderer lightRenderer;
 
     private Animator leverAnimator;
+
+    private bool activated = false;
+
+    private static readonly int ActivateLever = Animator.StringToHash("Activate");
     private void Start()
     {
         leverAnimator = GetComponent<Animator>();
     }    
     public void ChangeLights()
     {
+        activated = !activated;
         if(lights != null)
         for(int i = 0; i < lights.Length; i++)
         {
@@ -29,7 +34,6 @@ public class LeverAction : MonoBehaviour
             }
         }
 
-        leverAnimator.SetTrigger("Activate");
-        leverAnimator.SetFloat("Speed", -leverAnimator.GetFloat("Speed"));
+        leverAnimator.SetBool(ActivateLever, activated);
     }
 }

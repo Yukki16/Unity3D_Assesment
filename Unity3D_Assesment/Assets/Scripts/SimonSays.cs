@@ -16,7 +16,7 @@ public class SimonSays : MonoBehaviour
     private int[] currentOrderIntroduced;
     private int counter = 0;
 
-    private int simonSaysLenght = 5;
+    private int simonSaysLenght = 4;
 
     private Renderer objectRenderer = null;
 
@@ -162,7 +162,7 @@ public class SimonSays : MonoBehaviour
         }
         else
         {
-            if (counter == 5)
+            if (counter == 4)
             {
                 ActivatePointLight();
                 StartCoroutine(ReceiveAPoint());
